@@ -1,0 +1,495 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .progress-circle-container {
+    width: 45vw !important;
+    height: 45vw !important;
+  }
+  .circle-corners-all {
+    stroke-dasharray: 119vw;
+    stroke-dashoffset: 119vw;
+  }
+  .number {
+    color: white;
+    font-size: 12vw !important;
+    z-index: 1;
+  }
+  .number-area-container {
+    margin-top: -4vw !important;
+  }
+
+  .runner-1 {
+    background-size: auto 5vw !important;
+    width: 5vw !important;
+    height: 5vw !important;
+    background-position-x: 0 !important;
+  }
+  .runner-2 {
+    background-size: auto 5vw !important;
+    width: 5vw !important;
+    height: 5vw !important;
+    background-position-x: -5vw !important;
+  }
+  .runner-3 {
+    background-size: auto 5vw !important;
+    width: 5vw !important;
+    height: 5vw !important;
+    background-position-x: -10vw !important;
+  }
+  .runner-4 {
+    background-size: auto 5vw !important;
+    width: 5vw !important;
+    height: 5vw !important;
+    background-position-x: -15vw !important;
+  }
+  .runner-5 {
+    background-size: auto 5vw !important;
+    width: 5vw !important;
+    height: 5vw !important;
+    background-position-x: -20vw !important;
+  }
+  .runner-6 {
+    background-size: auto 5vw !important;
+    width: 5vw !important;
+    height: 5vw !important;
+    background-position-x: -25vw !important;
+  }
+
+  .runner-7 {
+    background-size: auto 5vw !important;
+    width: 5vw !important;
+    height: 5vw !important;
+    background-position-x: -30vw !important;
+  }
+
+  .runner-8 {
+    background-size: auto 5vw !important;
+    width: 5vw !important;
+    height: 5vw !important;
+    background-position-x: -35vw !important;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .circle-corners-all {
+    stroke-dasharray: 92vh;
+    stroke-dashoffset: 92vh;
+  }
+  .runner-1 {
+    background-size: auto 4vh !important;
+
+    background-position-x: 0 !important;
+  }
+  .runner-2 {
+    background-size: auto 4vh !important;
+
+    background-position-x: -4vh !important;
+  }
+  .runner-3 {
+    background-size: auto 4vh !important;
+
+    background-position-x: -8vh !important;
+  }
+  .runner-4 {
+    background-size: auto 4vh !important;
+
+    background-position-x: -12vh !important;
+  }
+  .runner-5 {
+    background-size: auto 4vh !important;
+
+    background-position-x: -16vh !important;
+  }
+  .runner-6 {
+    background-size: auto 4vh !important;
+
+    background-position-x: -20vh !important;
+  }
+
+  .runner-7 {
+    background-size: auto 4vh !important;
+
+    background-position-x: -24vh !important;
+  }
+
+  .runner-8 {
+    background-size: auto 4vh !important;
+
+    background-position-x: -28vh !important;
+  }
+}
+
+.progress-circle-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 35vh;
+  height: 35vh;
+}
+.shadow-giver {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  z-index: -1;
+  inset: -6px;
+  transform: translate3d(0px, 0px, -1px) rotateZ(180deg);
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    rgba(0, 178, 255, 1) 0%,
+    rgba(58, 86, 185, 1) 25%,
+    rgba(204, 208, 4, 1) 50%,
+    rgba(207, 87, 0, 1) 75%,
+    rgba(206, 0, 0, 1) 100%
+  );
+  filter: blur(10px);
+  animation: shadowBlink 0.5s ease-out;
+}
+
+.colour-giver {
+  transform: rotateZ(90deg);
+  transform-origin: center;
+  width: 100%;
+  height: 100%;
+}
+
+.d-none {
+  display: none;
+}
+
+.progress-circle-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.lines {
+  z-index: 1;
+}
+.circle-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotateZ(270deg);
+}
+
+.circle-corners-all {
+  fill: none;
+  stroke: url(#colorPattern);
+  stroke-width: 16px;
+  transition: stroke-dashoffset 3s ease-out;
+  /*animation: circleProgress 1.5s ease-out forwards;*/
+}
+
+.countdown-top-left {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+}
+
+.countdown-top-right {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+
+.countdown-bottom-left {
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+}
+
+.countdown-bottom-right {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+}
+
+.number {
+  color: white;
+  font-size: 7vh;
+  z-index: 1;
+}
+
+.number-animation {
+  animation: numberAnimation 0.75s linear infinite;
+}
+.blink-animation {
+  animation: textBlink 1s ease-out infinite;
+}
+
+.strong-tilt-move-shake {
+  animation: tilt-n-move-shaking 0.15s infinite;
+}
+.number-red {
+  transition: color 3s;
+  color: rgba(206, 0, 0, 1);
+}
+
+@keyframes tilt-n-move-shaking {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(2px, 2px) rotate(2deg);
+  }
+  50% {
+    transform: translate(0, 0) rotate(0eg);
+  }
+  75% {
+    transform: translate(-2px, 2px) rotate(-2deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+@keyframes textBlink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes circleProgress {
+  100% {
+    stroke-dashoffset: 277.68;
+  }
+}
+
+@keyframes numberAnimation {
+  0% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(1.125);
+  }
+
+  45% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes shadowBlink {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@property --t {
+  syntax: "<number>";
+  initial-value: 10;
+  inherits: true;
+}
+
+@property --s {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: true;
+}
+
+.countdown {
+  --s: calc(var(--t) / 1);
+  display: grid;
+  place-content: center;
+  width: 100vw;
+  height: 100vh;
+  animation: t 10s linear forwards;
+}
+
+.countdown::after {
+  grid-column: 1;
+  grid-row: 1;
+  place-self: center;
+  font: 10vh Arial;
+  counter-reset: s var(--s);
+  color: white;
+  content: counter(s);
+  animation: scaleNumber 1s linear infinite, changeNumber 1s steps(1) infinite;
+}
+
+@keyframes t {
+  to {
+    --t: 0;
+  }
+}
+
+@keyframes scaleNumber {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.5);
+  }
+}
+
+@keyframes changeNumber {
+  0%,
+  100% {
+    content: counter(s);
+  }
+
+  50% {
+    content: counter(s);
+    counter-increment: s;
+  }
+}
+
+.svg-countdown {
+  grid-column: 1;
+  grid-row: 1;
+  width: 40vmin;
+  height: 40vmin;
+}
+
+.circle-countdown {
+  fill: none;
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+
+.circle-bg {
+  stroke: #555;
+}
+
+.circle-fg {
+  stroke: white;
+  stroke-dasharray: 282;
+  animation: progress 1s linear infinite;
+}
+
+@keyframes progress {
+  0% {
+    stroke-dashoffset: 282;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.start-message {
+  display: none;
+  font: 10vh Arial;
+  color: white;
+  animation: fadeIn 2s forwards;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.show-start-message {
+  display: block;
+}
+
+.number-area-container {
+  margin-top: -3vh;
+  position: absolute;
+  z-index: 3;
+}
+
+.numbers-container {
+  display: flex;
+  justify-content: center;
+}
+
+.runner-1 {
+  background: url("numbers.webp");
+  width: 4vh;
+  height: 4vh;
+  margin-left: 4px;
+  margin-right: 4px;
+  border: 1px solid black;
+}
+.runner-2 {
+  background: url("numbers.webp");
+  width: 4vh;
+  height: 4vh;
+  margin-left: 4px;
+  margin-right: 4px;
+  border: 1px solid black;
+}
+.runner-3 {
+  background: url("numbers.webp");
+  width: 4vh;
+  height: 4vh;
+  margin-left: 4px;
+  margin-right: 4px;
+  border: 1px solid black;
+}
+.runner-4 {
+  background: url("numbers.webp");
+  width: 4vh;
+  height: 4vh;
+  margin-left: 4px;
+  margin-right: 4px;
+  border: 1px solid white;
+}
+.runner-5 {
+  background: url("numbers.webp");
+  width: 4vh;
+  height: 4vh;
+  margin-left: 4px;
+  margin-right: 4px;
+  border: 1px solid black;
+}
+.runner-6 {
+  background: url("numbers.webp");
+  width: 4vh;
+  height: 4vh;
+  margin-left: 4px;
+  margin-right: 4px;
+  border: 1px solid black;
+}
+
+.runner-7 {
+  background: url("numbers.webp");
+  width: 4vh;
+  height: 4vh;
+  margin-left: 4px;
+  margin-right: 4px;
+  border: 1px solid black;
+}
+
+.runner-8 {
+  background: url("numbers.webp");
+  width: 4vh;
+  height: 4vh;
+  margin-left: 4px;
+  margin-right: 4px;
+  border: 1px solid white;
+}

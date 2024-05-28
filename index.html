@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Gauge</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <div class="progress-circle-container countdown-top-left">
+      <img
+        src="spinner.svg"
+        class="d-none progress-circle-image"
+        alt=""
+        srcset=""
+      />
+      <img
+        src="lines3.svg"
+        class="progress-circle-image lines"
+        alt=""
+        srcset=""
+      />
+      <div class="number-area-container">
+        <div class="numbers-container" id="numbers-container"></div>
+
+        <div id="number" class="number"></div>
+      </div>
+      <div id="shadow-giver"></div>
+      <svg
+        class="circle-bar"
+        xmlns="http://www.w3.org/2000/svg"
+        version="1.1"
+        width="140px"
+        height="140px"
+      >
+        <defs>
+          <pattern
+            id="colorPattern"
+            patternUnits="userSpaceOnUse"
+            width="140"
+            height="140"
+          >
+            <image
+              class="colour-giver"
+              href="colours.png"
+              x="0"
+              y="0"
+              width="140"
+              height="140"
+            />
+          </pattern>
+          <mask id="progressMask">
+            <circle
+              class="circle-corners-all"
+              id="circleMask"
+              cx="70"
+              cy="70"
+              r="59"
+              fill="white"
+            />
+          </mask>
+        </defs>
+        <circle
+          class="circle-corners circle-corners-all"
+          id="myCircle"
+          cx="70"
+          cy="70"
+          r="58.9"
+          stroke-linecap="flat"
+        />
+      </svg>
+    </div>
+    <div class="progress-circle-container countdown-top-right">
+      <img
+        src="spinner.svg"
+        class="d-none progress-circle-image"
+        alt=""
+        srcset=""
+      />
+      <img
+        src="lines3.svg"
+        class="progress-circle-image lines"
+        alt=""
+        srcset=""
+      />
+      <div class="number-area-container">
+        <div class="numbers-container" id="numbers-container"></div>
+
+        <div id="number" class="number"></div>
+      </div>
+      <div id="shadow-giver"></div>
+      <svg
+        class="circle-bar"
+        xmlns="http://www.w3.org/2000/svg"
+        version="1.1"
+        width="140px"
+        height="140px"
+      >
+        <circle
+          class="circle-corners circle-corners-all"
+          id="myCircle"
+          cx="70"
+          cy="70"
+          r="58.9"
+          stroke-linecap="flat"
+        />
+      </svg>
+    </div>
+    <div class="progress-circle-container countdown-bottom-left">
+      <img
+        src="spinner.svg"
+        class="d-none progress-circle-image"
+        alt=""
+        srcset=""
+      />
+      <img
+        src="lines3.svg"
+        class="progress-circle-image lines"
+        alt=""
+        srcset=""
+      />
+      <div class="number-area-container">
+        <div class="numbers-container" id="numbers-container"></div>
+
+        <div id="number" class="number"></div>
+      </div>
+      <div id="shadow-giver"></div>
+      <svg
+        class="circle-bar"
+        xmlns="http://www.w3.org/2000/svg"
+        version="1.1"
+        width="140px"
+        height="140px"
+      >
+        <circle
+          class="circle-corners circle-corners-all"
+          id="myCircle"
+          cx="70"
+          cy="70"
+          r="58.9"
+          stroke-linecap="flat"
+        />
+      </svg>
+    </div>
+    <div class="progress-circle-container countdown-bottom-right">
+      <img
+        src="spinner.svg"
+        class="d-none progress-circle-image"
+        alt=""
+        srcset=""
+      />
+      <img
+        src="lines3.svg"
+        class="progress-circle-image lines"
+        alt=""
+        srcset=""
+      />
+      <div class="number-area-container">
+        <div class="numbers-container" id="numbers-container"></div>
+
+        <div id="number" class="number"></div>
+      </div>
+      <div id="shadow-giver"></div>
+      <svg
+        class="circle-bar"
+        xmlns="http://www.w3.org/2000/svg"
+        version="1.1"
+        width="140px"
+        height="140px"
+      >
+        <circle
+          class="circle-corners circle-corners-all"
+          id="myCircle"
+          cx="70"
+          cy="70"
+          r="58.9"
+          stroke-linecap="flat"
+        />
+      </svg>
+    </div>
+    <div class="countdown">
+      <svg class="svg-countdown" viewBox="-50 -50 100 100">
+        <circle
+          class="circle-bg circle-countdown"
+          cx="0"
+          cy="0"
+          r="45"
+        ></circle>
+        <circle
+          class="circle-fg circle-countdown"
+          cx="0"
+          cy="0"
+          r="45"
+          transform="rotate(-90 0 0)"
+        ></circle>
+      </svg>
+    </div>
+    <div class="start-message">START</div>
+  </body>
+</html>
